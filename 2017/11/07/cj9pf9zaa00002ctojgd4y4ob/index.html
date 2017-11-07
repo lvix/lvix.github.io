@@ -3,15 +3,20 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Lvix</title>
+  <title>C语言指针的初始化 | Lvix</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Lvix">
-<meta property="og:url" content="http://lvix.github.io/index.html">
+  <meta name="description" content="最近无聊在用C语言写一些东西，其中遇到了两个个关于C语言指针的问题：  指针应该如何初始化 结构体的指针需要初始化吗  结论是： 1. 一个指针在声明的时候应该立刻初始化在声明时应该指向确切的内存地址，地址可能是某个变量的地址，也可能是malloc出来的地址。1char * ptr = malloc(sizeof(char)*8); 如果指针暂时不指向任何确定的内存地址，赋值NULL1char *">
+<meta name="keywords" content="C语言,指针">
+<meta property="og:type" content="article">
+<meta property="og:title" content="C语言指针的初始化">
+<meta property="og:url" content="http://lvix.github.io/2017/11/07/cj9pf9zaa00002ctojgd4y4ob/index.html">
 <meta property="og:site_name" content="Lvix">
+<meta property="og:description" content="最近无聊在用C语言写一些东西，其中遇到了两个个关于C语言指针的问题：  指针应该如何初始化 结构体的指针需要初始化吗  结论是： 1. 一个指针在声明的时候应该立刻初始化在声明时应该指向确切的内存地址，地址可能是某个变量的地址，也可能是malloc出来的地址。1char * ptr = malloc(sizeof(char)*8); 如果指针暂时不指向任何确定的内存地址，赋值NULL1char *">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2017-11-07T09:40:05.641Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lvix">
+<meta name="twitter:title" content="C语言指针的初始化">
+<meta name="twitter:description" content="最近无聊在用C语言写一些东西，其中遇到了两个个关于C语言指针的问题：  指针应该如何初始化 结构体的指针需要初始化吗  结论是： 1. 一个指针在声明的时候应该立刻初始化在声明时应该指向确切的内存地址，地址可能是某个变量的地址，也可能是malloc出来的地址。1char * ptr = malloc(sizeof(char)*8); 如果指针暂时不指向任何确定的内存地址，赋值NULL1char *">
   
     <link rel="alternate" href="/atom.xml" title="Lvix" type="application/atom+xml">
   
@@ -49,7 +54,7 @@
     <div class="collapse navbar-collapse" id="main-menu-navbar">
       <ul class="nav navbar-nav">
         
-          <li><a class="active"
+          <li><a class=""
                  href="/index.html">Home</a></li>
         
           <li><a class=""
@@ -76,15 +81,13 @@
 
     <div class="row">
         <div class="col-sm-8 blog-main">
-          
-  
-    <article id="post-C" class="article article-type-post" itemscope itemprop="blogPost">
+          <article id="post-C" class="article article-type-post" itemscope itemprop="blogPost">
 
   <header class="article-header">
     
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/07/cj9pf9zaa00002ctojgd4y4ob/">C语言指针的初始化</a>
+    <h1 class="article-title" itemprop="name">
+      C语言指针的初始化
     </h1>
   
 
@@ -134,210 +137,22 @@
     </footer>
   </div>
   
-</article>
-
-
-
-  
-    <article id="post-special-chars-in-Markdown" class="article article-type-post" itemscope itemprop="blogPost">
-
-  <header class="article-header">
     
+<ul id="article-nav" class="nav nav-pills nav-justified">
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/07/cj9pf9zam00052ctok7ldt64e/">Markdown中的转义字符</a>
-    </h1>
+  <li role="presentation">
+    <a href="/2017/11/07/cj9pf9zam00052ctok7ldt64e/" id="article-nav-older" class="article-nav-link-wrap">
+      <i class="fa fa-chevron-left pull-left"></i>
+      <span class="article-nav-link-title">Markdown中的转义字符</span>
+    </a>
+  </li>
   
-
-
-  </header>
-
-  <div class="article-meta">
-    <div class="article-datetime">
-  <a href="/2017/11/07/cj9pf9zam00052ctok7ldt64e/" class="article-date"><time datetime="2017-11-07T09:01:00.000Z" itemprop="datePublished">2017-11-07</time></a>
-</div>
-
-    
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/闲杂笔记/">闲杂笔记</a>
-  </div>
-
-
-  </div>
-  <div class="article-inner">
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在Markdown中，如果需要输出如 <strong>#\&lt;></strong> 等字符，则需要用到一些特殊方法。</p>
-<h3 id="使用反斜杠"><a href="#使用反斜杠" class="headerlink" title="使用反斜杠\"></a>使用反斜杠\</h3><p>就像在C语言里面一样，在Markdown中，一些特殊字符可以通过加反斜杠输出：</p>
-<ul>
-<li><strong>\\</strong> 反斜杠</li>
-<li><strong>\{ \}</strong> 花括号</li>
-<li><strong>\[ \]</strong> 方括号</li>
-<li><strong>\( \)</strong> 括号</li>
-<li><strong>\!</strong> 感叹号</li>
-<li><strong>\`</strong> 反引号</li>
-<li><strong>__</strong> 下划线</li>
-<li><strong>\#</strong> 井号</li>
-<li><strong>\*</strong> 星号</li>
-<li><strong>\+</strong> 加号</li>
-<li><strong>\-</strong> 减号</li>
-<li><strong>\.</strong> 英文句号</li>
+  
 </ul>
-<h3 id="或者使用反引号-text"><a href="#或者使用反引号-text" class="headerlink" title="或者使用反引号 `text`"></a>或者使用反引号 <strong>`text`</strong></h3><p>反引号可以把一段字符转化为代码显示。在反引号中，很多特殊字符都可以被显示出来</p>
-<blockquote>
-<p>`[sample] {text}_+-.#! `</p>
-</blockquote>
-<p>输出：</p>
-<blockquote>
-<p><code>[sample] {text}_+-.#!</code></p>
-</blockquote>
-
-      
-    </div>
-
-    
-      
-
-    
-
-    <footer class="article-footer">
-      <a data-url="http://lvix.github.io/2017/11/07/cj9pf9zam00052ctok7ldt64e/" data-id="cj9pf9zam00052ctok7ldt64e" class="article-share-link">
-        <i class="fa fa-share"></i> Share
-      </a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Markdown/">Markdown</a></li></ul>
 
 
-    </footer>
-  </div>
   
 </article>
-
-
-
-  
-    <article id="post-buid-ss-on-VPS" class="article article-type-post" itemscope itemprop="blogPost">
-
-  <header class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/03/cj9pf9zaf00012cto3787vau0/">在VPS上搭建ss 简要笔记</a>
-    </h1>
-  
-
-
-  </header>
-
-  <div class="article-meta">
-    <div class="article-datetime">
-  <a href="/2017/11/03/cj9pf9zaf00012cto3787vau0/" class="article-date"><time datetime="2017-11-02T18:10:08.000Z" itemprop="datePublished">2017-11-03</time></a>
-</div>
-
-    
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/闲杂笔记/">闲杂笔记</a>
-  </div>
-
-
-  </div>
-  <div class="article-inner">
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在购买了VPS一有，用Putty之类的SSH工具登录VPS。<br>我比较习惯在用户目录下操作，先cd一下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd ~</div></pre></td></tr></table></figure></p>
-<p>执行以下命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wget --no-check-certificate -O shadowsocks-all.sh https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocks-a</div><div class="line">chmod +x shadowsocks-all.sh</div><div class="line">./shadowsocks-all.sh 2&gt;&amp;1 | tee shadowsocks-all.log</div></pre></td></tr></table></figure></p>
-<p>安装成功后会出现以下信息，下载相应的客户端，然后进行设置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">Congratulations, Shadowsocks-Go server install completed!</div><div class="line">Your Server IP : 0.0.0.0</div><div class="line">Your Server Port : 8989</div><div class="line">Your Password : qwertyuiop</div><div class="line">Your Encryption Method: aes-256-cfb</div></pre></td></tr></table></figure></p>
-<p>安装TCP BBR 拥塞控制算法<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh</div><div class="line">chmod +x bbr.sh</div><div class="line">./bbr.sh</div></pre></td></tr></table></figure></p>
-
-      
-    </div>
-
-    
-      
-
-    
-
-    <footer class="article-footer">
-      <a data-url="http://lvix.github.io/2017/11/03/cj9pf9zaf00012cto3787vau0/" data-id="cj9pf9zaf00012cto3787vau0" class="article-share-link">
-        <i class="fa fa-share"></i> Share
-      </a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPS/">VPS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/proxy/">proxy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/shadowsocks/">shadowsocks</a></li></ul>
-
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-
-  <header class="article-header">
-    
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/11/02/cj9pf9zaj00032ctopndmr24j/">Hello World</a>
-    </h1>
-  
-
-
-  </header>
-
-  <div class="article-meta">
-    <div class="article-datetime">
-  <a href="/2017/11/02/cj9pf9zaj00032ctopndmr24j/" class="article-date"><time datetime="2017-11-02T10:46:25.849Z" itemprop="datePublished">2017-11-02</time></a>
-</div>
-
-    
-    
-
-  </div>
-  <div class="article-inner">
-
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-    </div>
-
-    
-      
-
-    
-
-    <footer class="article-footer">
-      <a data-url="http://lvix.github.io/2017/11/02/cj9pf9zaj00032ctopndmr24j/" data-id="cj9pf9zaj00032ctopndmr24j" class="article-share-link">
-        <i class="fa fa-share"></i> Share
-      </a>
-      
-      
-
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
 
 
 
